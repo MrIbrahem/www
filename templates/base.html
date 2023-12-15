@@ -1,0 +1,43 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% block styles %}
+    <link href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"
+        type="text/css">
+    <link href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css"
+        rel="stylesheet" type="text/css">
+    {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    {% extends "header.html" %}
+    <main id='body'>
+        <br>
+        <div id='maindiv' class='container'>
+            <div class='card'>
+                <div class="card-header aligncenter" style="font-weight:bold;">
+                    <h3>{% block cardtitle %}{% endblock %}</h3>
+                </div>
+                <div class="card-body">
+                    {% block cardbody %}{% endblock %}
+                </div>
+                <div class="card-footer">
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {% block scripts %}
+    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js"></script>
+    {% endblock %}
+</body>
+
+</html>
