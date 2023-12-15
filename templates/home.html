@@ -9,6 +9,7 @@
 {% block cardbody %}
     {% if result %}
         <p>{{ result }}</p>
+        {% if co %}<br><p>{{ co }}</p>{% endif %}
     {% else %}
         <form action='/' method='POST'>
             <div class='col-lg-12'>
