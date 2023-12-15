@@ -30,3 +30,9 @@ def jobs():
     command = 'toolforge jobs list'
     result = subprocess.call(command, shell=True, env={"PATH": "/usr/bin"})
     return flask.render_template("home.html", result=result, co=command)
+
+@app.route("/ja")
+def ja():
+    command = 'toolforge jobs list'
+    result = subprocess.run(command, shell=True, capture_output=True, text=True, env={"PATH": "/usr/bin"})
+    return flask.render_template("home.html", result=result, co=command)
