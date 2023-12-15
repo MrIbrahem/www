@@ -21,5 +21,5 @@ def process_form():
 @app.route("/jobs")
 def jobs():
     command = '/usr/bin/toolforge jobs list'
-    result = subprocess.run(command, shell=True, capture_output=True, text=True)
-    return flask.render_template("home.html", result=result.stdout, co=command)
+    result = subprocess.call(command, shell=True, capture_output=True, text=True)
+    return flask.render_template("home.html", result=result, co=command)
