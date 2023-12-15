@@ -21,7 +21,7 @@ def process_form():
 
 @app.route("/uu")
 def start():
-    command = "jobs.sh"
+    command = "jsub jobs.sh"
     result = subprocess.run(command, shell=True, capture_output=True, text=True, env={"PATH": "/usr/bin"})
     return flask.render_template("home.html", result=result.stdout, co=command)
 
