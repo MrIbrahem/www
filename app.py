@@ -15,6 +15,13 @@ def process_form():
 
     # if start:
     command = '/usr/bin/toolforge jobs run mvn11 --image python3.9 --command "python3 core8/pwb.py mvn/mvnew"'
+    result = subprocess.run(command, shell=True, stdout=subprocess.PIPE)
+    return flask.render_template("home.html", result=result.stdout, co=command)
+
+
+@app.route("/uu")
+def start():
+    command = "jobs.sh"
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
     return flask.render_template("home.html", result=result.stdout, co=command)
 
