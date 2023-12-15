@@ -16,4 +16,4 @@ def process_form():
     if start:
         command = "jsub -N mvn11 python310 ./core8/pwb.py mvn/mvnew"
         result = subprocess.call(command, shell=True, capture_output=True, text=True)
-        return flask.render_template("index.html", result=result)
+        return flask.render_template("home.html", result=result)
